@@ -1,0 +1,206 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_UoW\\MilesCarRental_UoW.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Entities\\MilesCarRental_Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Entities\\MilesCarRental_Entities.csproj",
+        "projectName": "MilesCarRental_Entities",
+        "projectPath": "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Entities\\MilesCarRental_Entities.csproj",
+        "packagesPath": "C:\\Users\\Godie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Godie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Repository\\MilesCarRental_Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Repository\\MilesCarRental_Repository.csproj",
+        "projectName": "MilesCarRental_Repository",
+        "projectPath": "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Repository\\MilesCarRental_Repository.csproj",
+        "packagesPath": "C:\\Users\\Godie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Godie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Entities\\MilesCarRental_Entities.csproj": {
+                "projectPath": "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Entities\\MilesCarRental_Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_UoW\\MilesCarRental_UoW.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_UoW\\MilesCarRental_UoW.csproj",
+        "projectName": "MilesCarRental_UoW",
+        "projectPath": "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_UoW\\MilesCarRental_UoW.csproj",
+        "packagesPath": "C:\\Users\\Godie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_UoW\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Godie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Repository\\MilesCarRental_Repository.csproj": {
+                "projectPath": "C:\\Users\\Godie\\source\\repos\\PruebaTecnicaMilesCarRental\\MilesCarRental_Api\\MilesCarRental_Repository\\MilesCarRental_Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

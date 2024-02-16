@@ -1,0 +1,15 @@
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\bin\Debug\net6.0\MilesCarRental_Repository.deps.json
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\bin\Debug\net6.0\MilesCarRental_Repository.dll
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\bin\Debug\net6.0\MilesCarRental_Repository.pdb
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\bin\Debug\net6.0\MilesCarRental_Entities.dll
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\bin\Debug\net6.0\MilesCarRental_Entities.pdb
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\obj\Debug\net6.0\MilesCarRental_Repository.csproj.AssemblyReference.cache
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\obj\Debug\net6.0\MilesCarRental_Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\obj\Debug\net6.0\MilesCarRental_Repository.AssemblyInfoInputs.cache
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\obj\Debug\net6.0\MilesCarRental_Repository.AssemblyInfo.cs
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\obj\Debug\net6.0\MilesCarRental_Repository.csproj.CoreCompileInputs.cache
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\obj\Debug\net6.0\MilesCarRental_Repository.csproj.CopyComplete
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\obj\Debug\net6.0\MilesCarRental_Repository.dll
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\obj\Debug\net6.0\refint\MilesCarRental_Repository.dll
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\obj\Debug\net6.0\MilesCarRental_Repository.pdb
+C:\Users\Godie\source\repos\MilesCarRental_Api\MilesCarRental_Repository\obj\Debug\net6.0\ref\MilesCarRental_Repository.dll
