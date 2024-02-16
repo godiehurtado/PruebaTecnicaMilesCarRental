@@ -1,0 +1,233 @@
+﻿@model RentViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To Miles Car Rental!</h1>
+</div>
+<div>
+    <label>Please select your Pick-Up Location for your rent:</label>
+    @Html.DropDownListFor(model => model.SelectedLocationId, Model.LocationsList, "Select a Pick-Up Location", new { @class = "form-control", id = "SelectedLocationId" })
+</div>
+<div>
+    <label>Please insert your Pick-Up Date for your rent:</label>
+    <input type="text" id="StartDate" name="StartDate" class="form-control datepicker" placeholder="MM/DD/YYYY" />
+</div>
+
+<div>
+    <label>Please select your Drop-Off Location for your rent:</label>
+    @Html.DropDownListFor(model => model.SelectedDropOffLocationId, Enumerable.Empty<SelectListItem>(), "Select a Drop-Off Location", new { @class = "form-control", id = "SelectedDropOffLocationId" })
+</div>
+<div>
+    <label>Please insert your Drop-Off Date for your rent:</label>
+    <input type="text" id="EndDate" name="EndDate" class="form-control datepicker" placeholder="MM/DD/YYYY" />
+</div>
+
+<div>
+        <button type="button" class="btn btn-primary" onclick="showResults()">Show Results</button>
+</div>
+
+
+<div id="resultsSection" style="display: none;">
+    
+</div>
+
+@section scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".datepicker").datepicker({ dateFormat: 'mm/dd/yy' });
+        });
+    </script>
+    <script>
+        $("#SelectedLocationId").change(function () {
+            var selectedLocationId = $(this).val();
+
+            $.ajax({
+                url: "/Home/GetDropOffLocationData", 
+                type: "GET",
+                data: { locationId: selectedLocationId },
+                success: function (data) {
+                    var dropoffLocationDropdown = $('#SelectedDropOffLocationId');
+                    dropoffLocationDropdown.empty();
+
+                    $.each(data, function (index, item) {
+                        dropoffLocationDropdown.append($('<option>', {
+                            value: item.locationId,
+                            text: item.locationName
+                        }));
+                    });
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        });
+    </script>
+    <script>
+    function showResults() {
+        var selectedLocationId = $("#SelectedLocationId").val();
+        var dropoffLocationId = $("#SelectedDropOffLocationId").val();
+        var startDate = $("#StartDate").val();
+        var endDate = $("#EndDate").val();
+        $.ajax({
+                url: "/Home/GetVehicleTypeEnables", 
+                type: "GET",
+                data: { locationId: selectedLocationId, dropoffLocationId: dropoffLocationId, startDate: startDate, endDate: endDate },
+                success: function (data) {
+                    displayResults(data);
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        
+    }
+
+    function displayResults(vehicleCategories) {
+        let vehicleTypes = [];
+
+        $("#resultsSection").empty();
+        $("#resultsSection").append("<h2>These are the vehicles available for your rent, please select just one:</h2>");
+
+        vehicleCategories.forEach(ve => {
+            if (!vehicleTypes.includes(ve.type.typeId)) {
+                $("#resultsSection").append(`<br/><br/><div><h3>${ve.type.typeName}</h3></div>`);
+                vehicleTypes.push(ve.type.typeId);
+            }
+            $("#resultsSection").append(`<div><h4><a href="#" class="vehicle-link" data-category-id="${ve.categoryId}">${ve.categoryId} - ${ve.categoryName}</a></h4></div>`);
+        });
+
+        // Agregar un evento de clic no intrusivo
+        $(".vehicle-link").click(function (event) {
+            event.preventDefault();
+            const categoryId = $(this).data("category-id");
+            findCar(categoryId);
+        });
+
+        // Mostrar la sección de resultados
+        $("#resultsSection").show();
+    }
+
+    function findCar(categoryId) {
+        var selectedLocationId = $("#SelectedLocationId").val();
+        var dropoffLocationId = $("#SelectedDropOffLocationId").val();
+        var startDate = $("#StartDate").val();
+        var endDate = $("#EndDate").val();
+    
+        $.ajax({
+            url: "/Home/GetVehicleEnable",
+            type: "GET",
+            data: { locationId: selectedLocationId, dropoffLocationId: dropoffLocationId, startDate: startDate, endDate: endDate, categoryId: categoryId },
+            success: function (data) {
+                var htmlContent = "";
+
+                htmlContent += "<h2>Your enable vehicle is:</h2>";
+                htmlContent += "<br/><div><h3>Reference:</h3></div>";
+                htmlContent += "<div><h4>" + data.vehicleId + "</h4></div>";
+                htmlContent += "<br/><div><h3>Brand:</h3></div>";
+                htmlContent += "<div><h4>" + data.brand + "</h4></div>";
+                htmlContent += "<br/><div><h3>Model:</h3></div>";
+                htmlContent += "<div><h4>" + data.model + "</h4></div>";
+                htmlContent += "<br/><div><h3>Manufacturing Year:</h3></div>";
+                htmlContent += "<div><h4>" + data.manufacturingYear + "</h4></div>";
+                htmlContent += "<br/><div><h3>Mileage:</h3></div>";
+                htmlContent += "<div><h4>" + data.mileage + "</h4></div>";
+                htmlContent += "<br/><div><h3>Daily Price:</h3></div>";
+                htmlContent += "<div><h4>" + data.dailyPrice + "</h4></div>";
+
+                htmlContent += "<div><label>Do you want to confirm the reservation?</label></div>";
+                htmlContent += `<div><button type='button' class='btn btn-primary' id='confirmReservationButton'>Yes</button></div>`;
+
+                $("#resultsSection").empty().html(htmlContent).show();
+
+                // Agregar un evento de clic no intrusivo al botón de confirmación
+                $("#confirmReservationButton").click(function () {
+                    acceptRent(data.VehicleId);
+                });
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    }
+
+    function acceptRent(vehicleId) {
+        $("#resultsSection").empty();
+        let htmltext = "";
+
+        htmltext += "<br/><div><label>Please insert your Name:</label></div>";
+        htmltext += "<div><input type='text' id='CustomerName' name='CustomerName' class='form-control'/></div>";
+        htmltext += "<br/><div><label>Please insert your Licence Number:</label></div>";
+        htmltext += "<div><input type='text' id='Licence' name='Licence' class='form-control'/></div>";
+        htmltext += "<br/><div><label>Please insert your Phone Number:</label></div>";
+        htmltext += "<div><input type='text' id='Phone' name='Phone' class='form-control'/></div>";
+
+        htmltext += `<div><button type='button' class='btn btn-primary' onclick='finalRent(${vehicleId})'>Next</button></div>`;
+
+        $("#resultsSection").show();
+        $("#resultsSection").html(htmltext);
+    }
+
+    function finalRent(VehicleId) {
+    var selectedLocationId = $("#SelectedLocationId").val();
+    var dropoffLocationId = $("#SelectedDropOffLocationId").val();
+    var startDate = $("#StartDate").val();
+    var endDate = $("#EndDate").val();
+    var customerName = $("#CustomerName").val();
+    var customerLicence = $("#Licence").val();
+    var customerPhone = $("#Phone").val();
+
+    $.ajax({
+        url: "/Home/PostReservation",
+        type: "POST",
+        data: {
+            selectedLocationId: selectedLocationId,
+            dropoffLocationId: dropoffLocationId,
+            startDate: startDate,
+            endDate: endDate,
+            customerName: customerName,
+            customerLicence: customerLicence,
+            customerPhone: customerPhone,
+            VehicleId: VehicleId
+        },
+        success: function (data) {
+            var reservationresult = data.reservationResult;
+
+            $("#resultsSection").empty();
+            var htmltext = `
+                <h2>Your reservation is confirmed, please save reservation data:</h2>
+                <div><h3>Reference Reservation:</h3></div>
+                <div><h4>${reservationresult.reservationId}</h4></div>
+                <div><h3>Reference Vehicle:</h3></div>
+                <div><h4>${reservationresult.vehicle.vehicleId}</h4></div>
+                <div><h3>Brand:</h3></div>
+                <div><h4>${reservationresult.vehicle.brand}</h4></div>
+                <div><h3>Model:</h3></div>
+                <div><h4>${reservationresult.vehicle.model}</h4></div>
+                <div><h3>Pick-Up Location:</h3></div>
+                <div><h4>${data.pickupLocation}</h4></div>
+                <div><h3>Drop-Off Location:</h3></div>
+                <div><h4>${data.dropoffLocation}</h4></div>
+                <div><h3>Pick-Up Date:</h3></div>
+                <div><h4>${new Date(reservationresult.startDate).toLocaleDateString()}</h4></div>
+                <div><h3>Drop-Off Date:</h3></div>
+                <div><h4>${new Date(reservationresult.endDate).toLocaleDateString()}</h4></div>
+                <div><h3>Total Rate:</h3></div>
+                <div><h4>${reservationresult.totalRate}</h4></div>
+                <div><h2>Thank you for renting with us. Bye bye.</h2></div>`;
+
+            $("#resultsSection").show();
+            $("#resultsSection").html(htmltext);
+        },
+        error: function (error) {
+            console.error(error);
+        }
+    });
+}
+</script>
+    }

@@ -131,7 +131,7 @@ try
         Console.WriteLine("Your reservation is confirm, please save reservation data:");
         Console.ForegroundColor = ConsoleColor.Cyan;
         Console.WriteLine($" Reference Reservation: {reservationresult.ReservationId}");
-        Console.WriteLine($" Reference: {vehicle.VehicleId}");
+        Console.WriteLine($" Reference Vehicle: {vehicle.VehicleId}");
         Console.WriteLine($" Brand: {vehicle.Brand}");
         Console.WriteLine($" Model: {vehicle.Model}");
         Console.WriteLine($" Pick-Up Location: {locations.Where(x => x.LocationId == reservationresult.PickUpLocationId).Select(x => x.LocationName).FirstOrDefault()}");

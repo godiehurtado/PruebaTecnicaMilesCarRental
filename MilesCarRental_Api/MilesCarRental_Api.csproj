@@ -13,16 +13,19 @@
     <Compile Remove="MilesCarRental_Repository\**" />
     <Compile Remove="MilesCarRental_Services\**" />
     <Compile Remove="MilesCarRental_UoW\**" />
+    <Compile Remove="MilesCarRental_WEB\**" />
     <EmbeddedResource Remove="MilesCarRental_API_WEB\**" />
     <EmbeddedResource Remove="MilesCarRental_Entities\**" />
     <EmbeddedResource Remove="MilesCarRental_Repository\**" />
     <EmbeddedResource Remove="MilesCarRental_Services\**" />
     <EmbeddedResource Remove="MilesCarRental_UoW\**" />
+    <EmbeddedResource Remove="MilesCarRental_WEB\**" />
     <None Remove="MilesCarRental_API_WEB\**" />
     <None Remove="MilesCarRental_Entities\**" />
     <None Remove="MilesCarRental_Repository\**" />
     <None Remove="MilesCarRental_Services\**" />
     <None Remove="MilesCarRental_UoW\**" />
+    <None Remove="MilesCarRental_WEB\**" />
   </ItemGroup>
 
   <ItemGroup>
