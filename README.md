@@ -9,5 +9,6 @@ MilesCarRental_Api: Contiene toda la solución de la aplicación prueba con los 
  - MilesCarRental_Services: Capa de negocio (Patrón de Inyección de dependencias)
  - MilesCarRental_API_WEB: API WEB con micro servicios REST. Pueden ser consumidos por cualquier FRONT.
  - MilesCarRental_Api: Aplicación de consola que funciona como FRONT para probar la lógica de negocio y el consumo de los API REST. Tiene arquitectura MVC.
+ - MilesCarRental_WEB: Aplicación WEB en MVC que funciona como FRONT para probar la lógica de negocio y el consumo de los API REST.
  
  DB: Contiene archivo BackUp para restaurar base de datos SQL 18, y SCRIPT que también puede crear Tablas, Procedimientos y Datos para las pruebas.
