@@ -4,11 +4,27 @@ using System.Text;
 
 namespace MilesCarRental_Repository.DB
 {
+    /// <summary>
+    /// Clase base abstracta para implementar operaciones comunes de base de datos.
+    /// </summary>
     public abstract class Repository
     {
+        /// <summary>
+        /// Conexión a la base de datos.
+        /// </summary>
         protected SqlConnection _context;
+
+        /// <summary>
+        /// Transacción asociada a la operación en la base de datos.
+        /// </summary>
         protected SqlTransaction _transaction;
 
+        /// <summary>
+        /// Ejecuta un comando no asincrónico en la base de datos.
+        /// </summary>
+        /// <param name="nameSP">Nombre del procedimiento almacenado.</param>
+        /// <param name="lstParameterIn">Diccionario de parámetros de entrada.</param>
+        /// <returns>True si la ejecución fue exitosa; de lo contrario, false.</returns>
         public async Task<bool> ExecuteComandoBDNonAsync(string nameSP, Dictionary<string, object> lstParameterIn)
         {
             bool result = false;
@@ -37,6 +53,13 @@ namespace MilesCarRental_Repository.DB
             return result;
         }
 
+        /// <summary>
+        /// Ejecuta un comando asincrónico en la base de datos.
+        /// </summary>
+        /// <param name="nameSP">Nombre del procedimiento almacenado.</param>
+        /// <param name="lstParameterIn">Diccionario de parámetros de entrada.</param>
+        /// <param name="parameterOut">Parámetro de salida.</param>
+        /// <returns>Valor del parámetro de salida después de la ejecución.</returns>
         public async Task<string> ExecuteComandoBDAsync(string nameSP, Dictionary<string, object> lstParameterIn, SqlParameter parameterOut)
         {
             string parameterOutValue = string.Empty;
@@ -67,6 +90,12 @@ namespace MilesCarRental_Repository.DB
             return parameterOutValue;
         }
 
+        /// <summary>
+        /// Ejecuta un comando asincrónico en la base de datos y devuelve un DataTable con el resultado.
+        /// </summary>
+        /// <param name="nameSP">Nombre del procedimiento almacenado.</param>
+        /// <param name="lstParameterIn">Diccionario de parámetros de entrada.</param>
+        /// <returns>DataTable con el resultado de la ejecución.</returns>
         public async Task<DataTable> ExecuteComandoBDDTAsync(string nameSP, Dictionary<string, object> lstParameterIn)
         {
             var dt = new DataTable();
